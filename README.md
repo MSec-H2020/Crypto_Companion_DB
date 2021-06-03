@@ -1,1 +1,1 @@
-# M-Sec_Companion_DataBase
+# M-Sec_Crypto_Companion_DataBase(CCDB)
