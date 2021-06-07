@@ -16,7 +16,7 @@ Each application in the ecosystem can have its own crypto companion database; th
 
 Following a figure showing how data can be accessed:
 
-![](RackMultipart20210607-4-1q88eg9_html_4fdb5dc5237ee228.png)
+![image](https://user-images.githubusercontent.com/10829055/121028556-3a364380-c7a8-11eb-96d3-79dc0ebf519a.png)
 
 **Figure 20. Access to distributed data.**
 
@@ -35,7 +35,7 @@ The Companion DB Module has a public API that can be used to save, delete and qu
 
 In the following diagram an overview of the components.
 
-![](RackMultipart20210607-4-1q88eg9_html_7facefe76a0e7b06.png)
+![image](https://user-images.githubusercontent.com/10829055/121028589-402c2480-c7a8-11eb-86cf-8a4871674d84.png)
 
 **Figure 21. Crypto Companion Database Module components.**
 
@@ -52,41 +52,41 @@ The Crypto API provides:
 
 - A method to create an asymmetric key pair:
 
-![](RackMultipart20210607-4-1q88eg9_html_3f520ad56d139ce5.png)
+![image](https://user-images.githubusercontent.com/10829055/121028774-5fc34d00-c7a8-11eb-8f39-6f23b3d8cba3.png)
 
 The creation of the public/private key pair can be made by providing a 12-word mnemonic, allowing replicating the keys in other applications. It will be useful if the user wants to authorize always with the same public/private key, and also will allow a distributed system to be able to decrypt data in a distributed way.
 
-![](RackMultipart20210607-4-1q88eg9_html_e4de0ef546ead5ff.png)
+![image](https://user-images.githubusercontent.com/10829055/121028796-65209780-c7a8-11eb-9f7b-8af28255d25e.png)
 
 **Figure 22. Sequence diagram. Enrolment in Crypto Module.**
 
 - A method to encrypt data:
 
-![](RackMultipart20210607-4-1q88eg9_html_b27532bee4d5a4bf.png)
+![image](https://user-images.githubusercontent.com/10829055/121028806-681b8800-c7a8-11eb-8891-be022d5424b8.png)
 
 This endpoint will take the private key of the user with the hash provided and encrypt the string with the data in the payload. If the user does not exists it will return the data sent as it is.
 
-![](RackMultipart20210607-4-1q88eg9_html_21af96b5989e8501.png)
+![image](https://user-images.githubusercontent.com/10829055/121028864-71a4f000-c7a8-11eb-82ac-29a92f9d286d.png)
 
 **Figure 23. Sequence diagram. Data encryption in Crypto Module.**
 
 - A method to decrypt data:
 
-![](RackMultipart20210607-4-1q88eg9_html_3d30aa22c4a18c89.png)
+![image](https://user-images.githubusercontent.com/10829055/121028899-79649480-c7a8-11eb-9b3d-714dd200f82c.png)
 
 This endpoint will take the private key of the user with the hash provided and decrypt the string with the data in the payload. If the user does not exists it will return the data sent as it is.
 
-![](RackMultipart20210607-4-1q88eg9_html_dfccaa229031d97a.png)
+![image](https://user-images.githubusercontent.com/10829055/121028926-7c5f8500-c7a8-11eb-8e92-ed3cd83e971c.png)
 
 **Figure 24. Sequence diagram. Data decryption in Crypto Module.**
 
 - A method to delete the keys:
 
-![](RackMultipart20210607-4-1q88eg9_html_bf5b7d7eac1f4141.png)
+![image](https://user-images.githubusercontent.com/10829055/121028968-82edfc80-c7a8-11eb-9b4d-d3f208e73494.png)
 
 This endpoint will delete the public/private keys associated with the hash provided.
 
-![](RackMultipart20210607-4-1q88eg9_html_88c53d933a2bbdfd.png)
+![image](https://user-images.githubusercontent.com/10829055/121028987-85e8ed00-c7a8-11eb-89de-9bf76d49de38.png)
 
 **Figure 25. Sequence diagram. Disenrolment in Crypto Module.**
 
@@ -116,13 +116,13 @@ The Companion DB API provides:
 
 - A set of methods to register, update user information and recover a password.
 
-![](RackMultipart20210607-4-1q88eg9_html_7cdd051691b8b7ce.png)
+![image](https://user-images.githubusercontent.com/10829055/121029026-8da89180-c7a8-11eb-999c-237e93f04a1d.png)
 
 **Figure 26. Authentication API in Crypto Companion Database Module.**
 
 - A method to register:
 
-![](RackMultipart20210607-4-1q88eg9_html_7cdd051691b8b7ce.png)
+![image](https://user-images.githubusercontent.com/10829055/121029041-913c1880-c7a8-11eb-8827-4c73dda46ade.png)
 
 The registration of a user will also trigger the enrolment on the Crypto Module, so the keys will be created during the registration.
 
@@ -130,37 +130,37 @@ The registration of a user will also trigger the enrolment on the Crypto Module,
 
 - A method to enrol:
 
-![](RackMultipart20210607-4-1q88eg9_html_175b99d8c8c02408.png)
+![image](https://user-images.githubusercontent.com/10829055/121029061-94370900-c7a8-11eb-93ef-86fb594a6d3e.png)
 
 The creation of the public/private key pair can be made by providing a 12-word mnemonic, allowing replicating the keys in other applications. It will be useful if the user wants to authorize always with the same public/private key, and also will allow a distributed system to be able to decrypt data in a distributed way.
 
-![](RackMultipart20210607-4-1q88eg9_html_ab5aa61cbc057088.png)
+![image](https://user-images.githubusercontent.com/10829055/121029078-97ca9000-c7a8-11eb-810f-fc335a4accc0.png)
 
 **Figure 27. Sequence diagram. Enrolment in CCDB Module.**
 
 - A method to disenrol:
 
-![](RackMultipart20210607-4-1q88eg9_html_d3973eb4c2f423e.png)
+![image](https://user-images.githubusercontent.com/10829055/121029099-9b5e1700-c7a8-11eb-9f25-871a836b036e.png)
 
 This endpoint will delete all data associated with the user along with its public/private keys.
 
-![](RackMultipart20210607-4-1q88eg9_html_b7beb8e1caaded3b.png)
+![image](https://user-images.githubusercontent.com/10829055/121029128-a153f800-c7a8-11eb-963e-000d30d4780c.png)
 
 **Figure 28. Sequence diagram. Disenrolment in CCDB Module.**
 
 - A method to read data:
 
-![](RackMultipart20210607-4-1q88eg9_html_4ac5741761904a1.png)
+![image](https://user-images.githubusercontent.com/10829055/121029169-ad3fba00-c7a8-11eb-9a67-eed5286c889e.png)
 
 These endpoints will let an owner or an authorized user to read the encrypted data.
 
-![](RackMultipart20210607-4-1q88eg9_html_7d31d6f70bb0436f.png)
+![image](https://user-images.githubusercontent.com/10829055/121029184-b03aaa80-c7a8-11eb-8592-6a8fb87dcecd.png)
 
 **Figure 29. Sequence diagram. Read data in CCDB Module.**
 
 - A method to save data:
 
-![](RackMultipart20210607-4-1q88eg9_html_463cbc29cc4ccce2.png)
+![image](https://user-images.githubusercontent.com/10829055/121029207-b4ff5e80-c7a8-11eb-9d9c-98d6e2c64d0a.png)
 
 This endpoint will let an owner to save encrypted data.
 
@@ -168,46 +168,46 @@ This method has evolved in order to be more compliant with the GDPR.
 
 Before the user should call the blockchain outside and provide a hash in order to link the information between the CCDB and the blockchain. Now, the companion database will take care of the encryption and the hash generation, making it more secure and having a hash in the blockchain that will be generated from encrypted sensitive data, not the raw sensitive data.
 
-![](RackMultipart20210607-4-1q88eg9_html_d3e380560c240c33.png)
+![image](https://user-images.githubusercontent.com/10829055/121029271-c0eb2080-c7a8-11eb-8327-c88f414df898.png)
 
 **Figure 30. Sequence Diagram. Save data in CCDB Module.**
 
 - A method to delete data:
 
-![](RackMultipart20210607-4-1q88eg9_html_6d402261875a98dc.png)
+![image](https://user-images.githubusercontent.com/10829055/121029293-c34d7a80-c7a8-11eb-8d19-dba854af4c0e.png)
 
 These endpoints will let the owner of the data to delete it.
 
-![](RackMultipart20210607-4-1q88eg9_html_662a04f983c0840d.png)
+![image](https://user-images.githubusercontent.com/10829055/121029308-c6e10180-c7a8-11eb-9d3e-d6e0a0da68f7.png)
 
 **Figure 31. Sequence Diagram. Delete data in CCDB Module.**
 
 - A method to authorize a user:
 
-![](RackMultipart20210607-4-1q88eg9_html_bfc2026eb3f87129.png)
+![image](https://user-images.githubusercontent.com/10829055/121029329-ca748880-c7a8-11eb-8187-340d5b84d000.png)
 
 This endpoint will let an owner to authorize another user to decrypt its data.
 
-![](RackMultipart20210607-4-1q88eg9_html_5a5c93df3289dd13.png)
+![image](https://user-images.githubusercontent.com/10829055/121029347-cd6f7900-c7a8-11eb-9087-573957df58cf.png)
 
 **Figure 32. Sequence diagram. Authorize in CCDB Module.**
 
 - A method to de-authorize a user:
 
-![](RackMultipart20210607-4-1q88eg9_html_51b176e8ebb23be5.png)
+![image](https://user-images.githubusercontent.com/10829055/121029367-d1030000-c7a8-11eb-8770-f5b81acb0159.png)
 
 This endpoint will let an owner to de-authorize another user to decrypt its data.
 
-![](RackMultipart20210607-4-1q88eg9_html_ccdeb04951ca8e89.png)
+![image](https://user-images.githubusercontent.com/10829055/121029379-d3fdf080-c7a8-11eb-8c84-e211a64dfb96.png)
 
 **Figure 33. Sequence diagram. Descoritase in CCDB Module.**
 
 - A method to request authorization to a user:
 
-![](RackMultipart20210607-4-1q88eg9_html_d1b03c75503d3e20.png)
+![image](https://user-images.githubusercontent.com/10829055/121029470-e5df9380-c7a8-11eb-884b-6e773348490c.png)
 
 This endpoint will let an external user to request authorization to access data to the owner.
 
-![](RackMultipart20210607-4-1q88eg9_html_432454ac420f79f2.png)
+![image](https://user-images.githubusercontent.com/10829055/121029489-ea0bb100-c7a8-11eb-97b9-79cdc201b64c.png)
 
 **Figure 34. Sequence diagram. Request authorization in CCDB Module.**
