@@ -211,3 +211,234 @@ This endpoint will let an external user to request authorization to access data 
 ![image](https://user-images.githubusercontent.com/10829055/121029489-ea0bb100-c7a8-11eb-97b9-79cdc201b64c.png)
 
 **Figure 34. Sequence diagram. Request authorization in CCDB Module.**
+
+#### Package Information &amp; Installation Instructions
+
+#### Required Tools and dependencies
+
+Following a list of the required tools and dependencies of the modules:
+
+- Docker (it comes with, Kubernetes, Kitematic, Docker Manager, …)
+- Docker Quickstart Terminal
+- Docker Toolbox (for Windows Users only)
+- Mongo DB
+- Oracle VM Virtualbox
+- Nodejs v10.17.0
+- NPM 6.11.3
+- Git
+
+The version indicated in some tools/dependencies are important for compatibility. If the versions are not these, it might raise some problems.
+
+In order to ease the installation, proceed with the established order in the list.
+
+#### Install Docker
+
+The installation can be found in the Docker&#39;s webpage [https://docs.docker.com/v17.09/engine/installation/](https://docs.docker.com/v17.09/engine/installation/), but following there is a list of the main steps and commands for Windows and Ubuntu.
+
+**Windows 10:** (Source: [https://docs.docker.com/v17.09/docker-for-windows/install/#start-docker-for-windows](https://docs.docker.com/v17.09/docker-for-windows/install/#start-docker-for-windows))
+
+In order to install DockerDocker, we have to follow the next steps:
+
+1. Download dockerDocker from the Docker Hub:
+
+https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
+
+1. Double-click Docker for Windows Installer.exe to run the installer.
+2. Follow the instructions on the installation wizard to accept the license, authorize the installer, and proceed with the install.
+
+When prompted, authorize the Docker Desktop Installer with your system password during the install process. Privileged access is needed to install networking components, links to the Docker apps, and manage the Hyper-V VMs.
+
+1. Click Finish on the setup complete dialog and launch the Docker Desktop application.
+2. Docker will not start automatically. To start it, search for Docker, select the app in the search results, and click it (or hit Return).
+
+**Ubuntu Xenial 16.04 LTS:** (Source: [https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/](https://docs.docker.com/v17.09/engine/installation/linux/docker-ce/ubuntu/))
+
+1. **Set up the repository**
+
+1. Update the apt package index:
+
+sudo apt-get update
+
+1. Install packages to allow apt to use a repository over HTTPS:
+
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+
+1. Add Docker&#39;s official GPG key:
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+Verify that you now have the key with the fingerprint 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88, by searching for the last 8 characters of the fingerprint.
+
+sudo apt-key fingerprint 0EBFCD88
+
+pub 4096R/0EBFCD88 2017-02-22
+
+Key fingerprint = 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88
+
+uid Docker Release (CE deb) \&lt;docker@docker.com\&gt;
+
+sub 4096R/F273FCD8 2017-02-22
+
+1. Use the following command to set up the stable repository.
+
+sudo add-apt-repository \
+
+&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+
+$(lsb\_release -cs) \
+
+stable&quot;
+
+1. **Install Docker**
+
+1. Install the _ **linux-image-extra** _ kernel package:
+
+sudo apt-get update -y &amp;&amp; sudo apt-get install -y linux-image-extra-$(uname -r)
+
+1. Install Docker:
+
+sudo apt-get install docker-engine -y
+
+1. Start Docker:
+
+ludo service docker start
+
+1. Verify Docker:
+
+sudo docker run hello-world
+
+#### Install Mongo DB
+
+As the dockerDocker was installed in the section above, the installation of the Mongo DB will be as easy as executing the following command for any operating system:
+
+docker run -p 27017:27017 --name mongo-nest -d mongo:4
+
+#### Install Node.js and npm
+
+The installation of these two tools is done together and it can be found in the Node.js webpage [https://nodejs.org/en/](https://nodejs.org/en/) , but following there are a list of the main steps and commands for Windows and Ubuntu.
+
+**Windows 10:**
+
+1. Download the binary from: [https://nodejs.org/dist/v10.17.0/](https://nodejs.org/dist/v10.17.0/)
+2. Install the _msi_ or _exe_ file by double-click.
+3. Follow the instructions.
+4. Check that Node.js is installed with the command:
+
+node -v
+
+1. Check that npm is installed with the command:
+
+npm -v
+
+**Ubuntu Xenial 16.04 LTS:** (check [https://github.com/nodesource/distributions/blob/master/README.md#debinstall](https://github.com/nodesource/distributions/blob/master/README.md#debinstall)for further information)
+
+1. Add the NodeSource package signing key:
+
+curl -sL https://deb.nodesource.com/setup\_10.x | sudo -E bash -
+
+1. Install Node.js
+
+sudo apt-get install -y nodejs
+
+#### Install Git
+
+Extracted from [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+**Windows 10:**
+
+1. Download and install it from https://git-scm.com/download/win
+
+**Ubuntu Xenial 16.04 LTS:**
+
+1. Execute the following command :command:
+
+sudo apt install git-all
+
+#### Download and Run Demonstrator
+
+In order to download and run the demonstrator the following steps have to be performed:
+
+1. Clone the GitHub project in a selected folder:
+
+git clone [https://github.com/jordiescudero/wl-bc-cs/](https://github.com/jordiescudero/wl-bc-cs/)
+
+1. Execute the command from the installation of Mongo DB:
+
+docker start mongo-nest
+
+1. Go to the root of the project:
+
+npm run start
+
+1. The base URI for all the interface will be: [http://localhost:3000/api/](http://localhost:3000/api/)
+2. The Swagger UI can be found at: [http://localhost:3000/api/docs/#/](http://localhost:3000/api/docs/#/)
+
+#### User Manual
+
+As stated in the section &quot;Companion DB Module&quot; the APIs that will be published and used will be the following.
+
+- Authentication API and the.
+
+![](RackMultipart20210607-4-11qx0s4_html_7cdd051691b8b7ce.png)
+
+Figure 17. Authentication API in Crypto Companion Database Module.
+
+- Data Management API.
+
+![](RackMultipart20210607-4-11qx0s4_html_463cbc29cc4ccce2.png)
+
+Figure 18. Management API in Crypto Companion Database Module.
+
+The Swagger UI provides enough information to let the developer know how to use this API, but some examples were put together as a starting point.
+
+- **GET /** _ **companionDB/** _ **read/{dataId}**
+
+_curl -X GET &quot;http://localhost:3000/api/companionDB/read/hashhashhashhashhash&quot; -H &quot;accept: application/json&quot;_
+
+- **POST /** _ **companionDB/** _ **save**
+
+_curl -X POST &quot;http://localhost:3000/api/companionDB/save&quot; -H &quot;accept: application/json&quot; -H &quot;Content-Type: application/json&quot; -d &quot;{ \&quot;name\&quot;: \&quot;Name\&quot;, \&quot;email\&quot;: \&quot;email@email.com\&quot;, \&quot;birht\_date\&quot;: \&quot;01/01/2001\&quot;, \&quot;gender\&quot;: \&quot;Other\&quot;, \&quot;city\&quot;: \&quot;Barcelona\&quot;}&quot;_
+
+The json beautified:
+
+_{_
+
+_&quot;name&quot;: &quot;Name&quot;,_
+
+_&quot;email&quot;: &quot;email@email.com&quot;,_
+
+_&quot;birht\_date&quot;: &quot;01/01/2001&quot;,_
+
+_&quot;gender&quot;: &quot;Other&quot;,_
+
+_&quot;city&quot;: &quot;Barcelona&quot;_
+
+_}_
+
+- **DELETE /** _ **companionDB/** _ **delete/{dataId}**
+
+_curl -X DELETE &quot;http://localhost:3000/api/companionDB/delete/hashhashhash&quot; -H &quot;accept: application/json&quot;_
+
+- **POST /** _ **companionDB/** _ **authorise/{hash}**
+
+_curl -X POST &quot;http://localhost:3000/api/companionDB/authorise/hashhashhash&quot; -H &quot;accept: application/json&quot; -H &quot;Content-Type: application/json&quot; -d &quot;{ \&quot;authHash\&quot;: \&quot;authorisedHash\&quot;}&quot;_
+
+The json beautified:
+
+_{_
+
+_&quot;authHash&quot;: &quot;authorisedHash&quot;_
+
+_}_
+
+#### Licensing
+
+Licensing for all the components/software used:
+
+- Docker is under Apache License 2.0 ([https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)) form more detail go to [https://www.docker.com/legal/components-licenses](https://www.docker.com/legal/components-licenses).
+- Mongo DB is under Server Side Public License ([https://www.mongodb.com/licensing/server-side-public-license](https://www.mongodb.com/licensing/server-side-public-license))
+- NPM is under Artistic License 2.0 ([https://www.npmjs.com/policies/npm-license](https://www.npmjs.com/policies/npm-license))
+- Git is under GNU General Public License version 2.0 ([https://opensource.org/licenses/GPL-2.0](https://opensource.org/licenses/GPL-2.0))
+- Oracle VirtualBox is under GNU General Public License, version 2 ([https://www.gnu.org/licenses/old-licenses/gpl-2.0.html](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html))
+- Software developed is under MIT ([https://github.com/jordiescudero/wl-bc-cs/blob/master/LICENSE](https://github.com/jordiescudero/wl-bc-cs/blob/master/LICENSE))
+
